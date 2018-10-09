@@ -1,8 +1,5 @@
 package com.company.web.dto;
 
-import com.company.domain.Airplane;
-import com.company.domain.Airport;
-
 public class FlightPath {
     private long airplaneId;
     private long destinationId;
@@ -22,5 +19,4 @@ public class FlightPath {
     public void setDestinationId(long destinationId) {
         this.destinationId = destinationId;
     }
-
 }
