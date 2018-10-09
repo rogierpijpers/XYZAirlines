@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Airplanes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class=“col-lg-12”>
+            <form id="mainForm" action="">
+                <button type="button" id="addAirplaneButton" class="btn btn-primary" data-toggle="modal" data-target="#airPlaneModal" style="margin: 10px; float: right;">+ &nbspAdd an airplane</button>
+            </form>
+        </div>
+    </div>
+    <div class=“row”>
+        <div class=“col-md-12”>
+            <h2>Airplanes</h2>
+            <table id="airplaneTable" class="display" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Fuel level</th>
+                    <th>Type</th>
+                    <th>location</th>
+                    <th>Edit</th>
+                    <th>Fly</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div id="airPlaneModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="padding: 15px 20px">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Register a new airplane</h4>
+                </div>
+                <div class="modal-body">
+                    <form data-toggle="validator" role="form" id="addAirplaneForm" onsubmit="return false;">
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="selectLocation" class="control-label">Select a location</label>
+                                <select id="selectLocation" class="form-control" required>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="inputType" class="control-label">Type</label>
+                                <input id="inputType" type="text" class="form-control" required/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="inputFuel" class="control-label">Amount of fuel</label>
+                                <input id="inputFuel" type="number" max="5" class="form-control" required/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-12" style="margin-top: 10px;">
+                                <button id="submitAirplane" type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        <input type="hidden" id="editType" value="insert"/>
+                        <input type="hidden" id="airplaneId"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="flightPathModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="padding: 15px 20px">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Make a flight</h4>
+                </div>
+                <div class="modal-body">
+                    <form data-toggle="validator" role="form" id="flightPathForm" onsubmit="return false;">
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="currentLocation" class="control-label">Current location</label>
+                                <input id="currentLocation" type="text" class="form-control" disabled/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="selectDestination" class="control-label">Select a Destination</label>
+                                <select id="selectDestination" class="form-control" required>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-12" style="margin-top: 10px;">
+                                <button id="submitFlightPath" type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        <input type="hidden" id="flightPathAirplaneId"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="js/airplane_overview.js"></script>
+</body>
+</html>

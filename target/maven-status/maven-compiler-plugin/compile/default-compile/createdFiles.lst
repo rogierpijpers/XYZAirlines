@@ -1,0 +1,3 @@
+com\company\domain\Person.class
+com\company\web\Application.class
+com\company\web\auth\WebSecurityConfig.class
